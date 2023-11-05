@@ -80,62 +80,62 @@ $(document).ready(function() {
 	
 			switch(i) {
 				case 0:
-					//var t = "Product1";
+					//var t = "лемур";
 					document.querySelector('.cart-body').insertAdjacentHTML(
 			'afterbegin',
 			`<div class="row">
 			<input readonly class="product0"></input>
 			<input readonly class="amount0"></input>
 			</div>`)
-			$('.product0').val("Product1");
+			$('.product0').val("лемур");
 			$('.amount0').val(cart[i]);
 					break;
 
 				case 1: 
-					//var t = "Product2";
+					//var t = "мармозетка";
 					document.querySelector('.cart-body').insertAdjacentHTML(
 			'afterbegin',
 			`<div class="row">
-			<input readonly class="product1"></input>
+			<input readonly class="лемур"></input>
 			<input readonly class="amount1"></input>
 			</div>`)
-			$('.product1').val("Product2");
+			$('.лемур').val("мармозетка");
 			$('.amount1').val(cart[i]);
 					break;
 		
 				case 2:
-					//var t = "Product3";
+					//var t = "еж";
 					document.querySelector('.cart-body').insertAdjacentHTML(
 			'afterbegin',
 			`<div class="row">
-			<input readonly class="product2"></input>
+			<input readonly class="мармозетка"></input>
 			<input readonly class="amount2"></input>
 			</div>`)
-			$('.product2').val("Product3");
+			$('.мармозетка').val("еж");
 			$('.amount2').val(cart[i]);
 					break;
 			
 				case 3:
-					//var t = "Product4";
+					//var t = "бабун";
 					document.querySelector('.cart-body').insertAdjacentHTML(
 			'afterbegin',
 			`<div class="row">
-			<input readonly class="product3"></input>
+			<input readonly class="еж"></input>
 			<input readonly class="amount3"></input>
 			</div>`)
-			$('.product3').val("Product4");
+			$('.еж').val("бабун");
 			$('.amount3').val(cart[i]);
 					break;
 			
 				case 4:
-					//var t = "Product5";
+					//var t = "слон";
 					document.querySelector('.cart-body').insertAdjacentHTML(
 			'afterbegin',
 			`<div class="row">
-			<input readonly class="product4"></input>
+			<input readonly class="бабун"></input>
 			<input readonly class="amount4"></input>
 			</div>`)
-			$('.product4').val("Product5");
+			$('.бабун').val("слон");
 			$('.amount4').val(cart[i]);
 					break;
 
