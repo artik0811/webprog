@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style13.css">
+    <title>Анкета</title>
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Анкета</h1>
+    <form id="bioForm">
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" required><br><br>
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" required><br><br>
+
+        <label for="middleName">Отчество:</label>
+        <input type="text" id="middleName"><br><br>
+
+        <label for="birthYear">Год рождения:</label>
+        <input type="text" id="birthYear"><br><br>
+
+        <label for="birthPlace">Место рождения:</label>
+        <input type="text" id="birthPlace"><br><br>
+
+        <label for="favoriteActivity">Любимое занятие:</label>
+        <input type="text" id="favoriteActivity"><br><br>
+
+        <label for="leastFavoriteActivity">Не любимое занятие:</label>
+        <input type="text" id="leastFavoriteActivity"><br><br>
+
+        <button type="button" onclick="generateBiography()">Сформировать биографию</button>
+    </form>
+
+    <script>
+        function generateBiography() {
+            var lastName = document.getElementById("lastName").value;
+            var firstName = document.getElementById("firstName").value;
+            var middleName = document.getElementById("middleName").value;
+            var birthYear = document.getElementById("birthYear").value;
+            var birthPlace = document.getElementById("birthPlace").value;
+            var favoriteActivity = document.getElementById("favoriteActivity").value;
+            var leastFavoriteActivity = document.getElementById("leastFavoriteActivity").value;
+
+            // Формирование биографии
+            var biography = `
+                <h2>О себе</h2>
+                <hr>
+                Я, ${lastName} ${firstName} ${middleName} родился в ${birthYear} году в городе ${birthPlace}.<br><br>
+                Больше всего я люблю ${favoriteActivity} и очень не люблю ${leastFavoriteActivity}. Было бы замечательно, всю жизнь только ${favoriteActivity}, но к сожалению, приходится иногда и ${leastFavoriteActivity}.
+            `;
+
+            // Открыть новое окно с биографией
+            var newWindow = window.open('', '_blank', 'width=600,height=400');
+            newWindow.document.open();
+            newWindow.document.write(biography);
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>

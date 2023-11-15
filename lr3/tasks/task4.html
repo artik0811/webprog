@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайд-шоу</title>
+    <link rel="stylesheet" type="text/css" href="../css/style4.css">
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Слайд-шоу</h1>
+
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="../gifs/kitten.gif" alt="Котик">
+        </div>
+        <div class="slide fade">
+            <img src="../gifs/homa.gif" alt="Хомяк">
+        </div>
+        <div class="slide fade">
+            <img src="../gifs/suslik.gif" alt="Суслик">
+        </div>
+    </div>
+    
+    <div style="text-align:center">
+        <button onclick="plusSlides(1)">Следующий</button>
+    </div>
+
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            var slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+</html>

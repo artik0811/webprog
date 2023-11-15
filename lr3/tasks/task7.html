@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор дней жизни</title>
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Калькулятор дней жизни</h1>
+    <p>Введите дату вашего рождения:</p>
+    <input type="date" id="birthday" required>
+    <button onclick="calculateDays()">Рассчитать</button>
+    <br><br>
+    <input type="text" id="result" readonly>
+    <p id="dateInfo"></p>
+
+    <script>
+        function calculateDays() {
+            var birthdayInput = document.getElementById("birthday");
+            var resultInput = document.getElementById("result");
+            var dateInfo = document.getElementById("dateInfo");
+
+            var birthday = new Date(birthdayInput.value);
+            var currentDate = new Date();
+
+            // Рассчитываем разницу в миллисекундах
+            var difference = currentDate - birthday;
+
+            // Количество миллисекунд в дне
+            var millisecondsInDay = 24 * 60 * 60 * 1000;
+
+            // Рассчитываем количество дней
+            var days = Math.floor(difference / millisecondsInDay);
+
+            // Получаем день недели, число, месяц и год
+            var daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+            var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
+            var dayOfWeek = daysOfWeek[birthday.getDay()];
+            var day = birthday.getDate();
+            var month = months[birthday.getMonth()];
+            var year = birthday.getFullYear();
+
+            dateInfo.innerHTML = `Дата вашего рождения: ${dayOfWeek}, ${day} ${month} ${year} года`;
+            resultInput.value = "Вы прожили " + days + " дней!";
+        }
+    </script>
+</body>
+</html>

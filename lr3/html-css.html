@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <title>Животные</title>
+</head>
+
+<style>
+  body {
+  background-color: rgb(3, 116, 136);
+  color: #333;
+  text-align: center;
+}
+
+.img1 {
+  display: inline-block;
+  margin: 10px;
+  transition: opacity 0.3s;
+}
+
+.img1:hover {
+  opacity: 0.7;
+}
+
+#info-box {
+  display: inline-block;
+  width: 300px;
+  padding: 20px;
+  background-color: rgb(194, 71, 71);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+</style>
+<body>
+    <h1>Котики</h1>
+
+    <div id="info-box">
+        <h2>Милый</h2>
+        <p id="img1"></p>
+    </div>
+
+    <img src="imgs1/img1.jpg" alt="Car 1" class="img1" onmouseover="showInfo('Кот и кот поменьше')" onmouseout="hideInfo()">
+    <img src="imgs1/img2.jpg" alt="Car 2" class="img1" onmouseover="showInfo('Выдра')" onmouseout="hideInfo()">
+    <img src="imgs1/img3.jpg" alt="Car 3" class="img1" onmouseover="showInfo('Этот язык показывает')" onmouseout="hideInfo()">
+    <img src="imgs1/img4.jpg" alt="Car 4" class="img1" onmouseover="showInfo('Грустный кот')" onmouseout="hideInfo()">
+
+    <div id="task-list">
+      <h2>Список заданий</h2>
+      <ul>
+          <li><a href="tasks/task2.html">Задание 2</a></li>
+          <li><a href="tasks/task3.html">Задание 3</a></li>
+          <li><a href="tasks/task4.html">Задание 4</a></li>
+          <li><a href="tasks/task5.html">Задание 5</a></li>
+          <li><a href="tasks/task6.html">Задание 6</a></li>
+          <li><a href="tasks/task7.html">Задание 7</a></li>
+          <li><a href="tasks/task8.html">Задание 8</a></li>
+          <li><a href="tasks/task9.html">Задание 9</a></li>
+          <li><a href="tasks/task10.html">Задание 10</a></li>
+          <li><a href="tasks/task11.html">Задание 11</a></li>
+          <li><a href="tasks/task12.html">Задание 12</a></li>
+          <li><a href="tasks/task13.html">Задание 13</a></li>
+          <li><a href="tasks/task14.html">Задание 14</a></li>
+      </ul>
+  </div>
+
+    <script>
+        function showInfo(model) {
+            const infoBox = document.getElementById("info-box");
+            const carInfo = document.getElementById("img1");
+            carInfo.innerHTML = `Животное: ${model}<br>`;
+            infoBox.style.opacity = 1;
+        }
+
+        function hideInfo() {
+            const infoBox = document.getElementById("info-box");
+            infoBox.style.opacity = 0;
+        }
+    </script>
+</body>
+</html>

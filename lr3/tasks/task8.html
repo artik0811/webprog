@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расстояние до начала координат</title>
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Расстояние до начала координат</h1>
+    <form>
+        <label for="x">Координата X:</label>
+        <input type="number" id="x" required><br><br>
+
+        <label for="y">Координата Y:</label>
+        <input type="number" id="y" required><br><br>
+
+        <button type="button" onclick="calculateDistance()">Вычислить расстояние</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateDistance() {
+            var x = parseFloat(document.getElementById("x").value);
+            var y = parseFloat(document.getElementById("y").value);
+            var resultElement = document.getElementById("result");
+
+            if (isNaN(x) || isNaN(y)) {
+                resultElement.textContent = "Введите корректные координаты.";
+                return;
+            }
+
+            var distance = Math.sqrt(x * x + y * y);
+            resultElement.textContent = "Расстояние до начала координат (0,0): " + distance.toFixed(2);
+        }
+    </script>
+</body>
+</html>

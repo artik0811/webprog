@@ -1,0 +1,60 @@
+<!-- HTML для генератора сказок -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style14.css">
+    <title>Генератор сказок</title>
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Генератор сказок</h1>
+    <form id="storybookForm">
+        <label for="heroName">Имя героя:</label>
+        <input type="text" id="heroName" required><br><br>
+
+        <label for="favoriteActivity">Любимое занятие:</label>
+        <input type="text" id="favoriteActivity" required><br><br>
+
+        <label for="friendName">Друг героя:</label>
+        <input type="text" id="friendName" required><br><br>
+
+        <label for="favoriteGift">Любимый подарок:</label>
+        <input type="text" id="favoriteGift" required><br><br>
+
+        <button type="button" onclick="generateStory()">Сгенерировать сказку</button>
+    </form>
+
+    <script>
+        function generateStory() {
+            var heroName = document.getElementById("heroName").value;
+            var favoriteActivity = document.getElementById("favoriteActivity").value;
+            var friendName = document.getElementById("friendName").value;
+            var favoriteGift = document.getElementById("favoriteGift").value;
+
+            var storyTitle = `Сказка про ${heroName} и его друга ${friendName}`;
+            
+            // Генерация сказки
+            var story = `
+                ${storyTitle}
+                <hr>
+                В одном лесу жил ${heroName}, который очень любил - ${favoriteActivity}. У него был верный друг по имени ${friendName}, который всегда поддерживал его. 
+                В один прекрасный день ${heroName} получил в подарок от ${friendName} самый заветный и любимый подарок - ${favoriteGift}. Это был прекрасный день!
+            `;
+
+            // Открыть новое окно с сказкой
+            var newWindow = window.open('', '_blank', 'width=600,height=400');
+            newWindow.document.open();
+            newWindow.document.write(story);
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>

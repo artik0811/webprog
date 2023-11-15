@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формы с животными</title>
+    <link rel="stylesheet" type="text/css" href="../css/style3.css">
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Формы с животными</h1>
+    <div class="table-container">
+        
+        <table>
+            <tr>
+                <th>Название</th>
+                <th>Изображение</th>
+            </tr>
+            <tr>
+                <td onmouseover="showImage('../gifs/kitten.gif')" onmouseout="hideImage()">
+                    Котенок
+                </td>
+                <td>
+                    <img src="empty-1.gif" id="animal-image" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td onmouseover="showImage('../gifs/homa.gif')" onmouseout="hideImage()">
+                    Хомяк
+                </td>
+            </tr>
+            <tr>
+                <td onmouseover="showImage('../gifs/suslik.gif')" onmouseout="hideImage()">
+                    Суслик
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function showImage(imageSrc) {
+            var animalImage = document.getElementById("animal-image");
+            animalImage.src = imageSrc;
+        }
+
+        function hideImage() {
+            var animalImage = document.getElementById("animal-image");
+            animalImage.src = "empty-1.gif";
+        }
+    </script>
+</body>
+</html>

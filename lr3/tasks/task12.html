@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страничка по заказу</title>
+    <style>
+        /* Стили CSS здесь */
+    </style>
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Страничка по заказу</h1>
+    <form>
+        <label for="artist">Художник</label>
+        <select id="artist">
+            <option value="Вермеер">Вермеер</option>
+            <option value="ВанГог">ВанГог</option>
+            <option value="ДаВинчи">ДаВинчи</option>
+            <!-- Добавьте других художников по аналогии -->
+        </select><br><br>
+
+        <label for="caption">Подпись</label>
+        <input type="text" id="caption"><br><br>
+
+        <label for="decodeText">Декодирование текста</label><br>
+        <input type="checkbox" id="decodeText"> Курсив<br>
+        <input type="checkbox" id="underlineText"> Подчеркивание<br>
+        <input type="checkbox" id="boldText"> Жирный<br><br>
+
+        <label for="backgroundImage">Фоновая картинка</label>
+        <select id="backgroundImage">
+            <option value="../img-task12/bg/bg1.jpg">Картинка 1</option>
+            <option value="../img-task12/bg/bg2.jpg">Картинка 2</option>
+            <option value="../img-task12/bg/bg3.jpg">Картинка 3</option>
+        </select><br><br>
+
+        <button type="button" onclick="showPortraits()">Показать</button>
+        <button type="reset">Сброс</button>
+    </form>
+
+    <script>
+        function showPortraits() {
+            var artist = document.getElementById("artist").value;
+            var caption = document.getElementById("caption").value;
+            var decodeText = document.getElementById("decodeText").checked;
+            var underlineText = document.getElementById("underlineText").checked;
+            var boldText = document.getElementById("boldText").checked;
+            var backgroundImage = document.getElementById("backgroundImage").value;
+
+            // Пути к портретам художников
+            var portraitPath = "";
+
+            if (artist === "Вермеер") {
+                portraitPath = "../img-task12/Вермеер.jpg";
+            } else if (artist === "ВанГог") {
+                portraitPath = "../img-task12/ВанГог.jpg";
+            } else if (artist === "ДаВинчи") {
+                portraitPath = "../img-task12/ДаВинчи.jpg";
+            }
+            // Добавьте других художников и пути к их портретам по аналогии
+
+            var outputHTML = `
+                <div style="background-image: url(${backgroundImage}); background-size: cover; padding: 20px;">
+                    <h2>${artist}</h2>
+                    <p style="font-style: ${decodeText ? 'italic' : 'normal'}; text-decoration: ${underlineText ? 'underline' : 'none'}; font-weight: ${boldText ? 'bold' : 'normal'};">${caption}</p>
+                    <img src="${portraitPath}" alt="${artist}">
+                </div>
+            `;
+
+            var newWindow = window.open('', '_blank', 'width=600,height=400');
+            newWindow.document.open();
+            newWindow.document.write(outputHTML);
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>

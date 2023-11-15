@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Количество дней до каникул</title>
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Количество дней до каникул</h1>
+    <form>
+        <label for="vacationDate">Дата начала каникул:</label>
+        <input type="date" id="vacationDate" required><br><br>
+
+        <button type="button" onclick="calculateDaysUntilVacation()">Рассчитать</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateDaysUntilVacation() {
+            var vacationDate = new Date(document.getElementById("vacationDate").value);
+            var currentDate = new Date();
+
+            var difference = vacationDate - currentDate;
+
+            var millisecondsInDay = 24 * 60 * 60 * 1000;
+
+            var daysUntilVacation = Math.floor(difference / millisecondsInDay);
+
+            var resultElement = document.getElementById("result");
+
+            if (daysUntilVacation < 0) {
+                resultElement.textContent = "Каникулы уже начались!";
+            } else {
+                resultElement.textContent = "До каникул осталось " + daysUntilVacation + " дней.";
+            }
+        }
+    </script>
+</body>
+</html>

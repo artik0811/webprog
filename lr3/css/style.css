@@ -1,0 +1,44 @@
+/* styles.css */
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #ffffff;
+  color: #555555;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.img1 {
+  display: inline-block;
+  margin: 10px;
+  transition: opacity 0.3s;
+}
+
+.img1:hover {
+  opacity: 0.7;
+}
+
+#info-box {
+  display: inline-block;
+  width: 300px;
+  padding: 20px;
+  background-color: #9b3b3b;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#task-list {
+  width: 200px;
+  text-align: left;
+}
+
+#task-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+#task-list ul li {
+  margin: 5px 0;
+}

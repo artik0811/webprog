@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style11.css">
+    <title>Страничка по заказу</title>
+</head>
+<style>
+    body {
+    background-color: rgb(3, 116, 136);
+    color: #333;
+    text-align: center;
+  }
+  </style>
+<body>
+    <h1>Страничка по заказу</h1>
+    <form>
+        <label for="title">Заголовок</label>
+        <input type="text" id="title"><br><br>
+
+        
+        <textarea id="text-field"></textarea><br><br>
+        <label>Собака</label>
+        <input type="checkbox" id="dog"> <br>
+        <label>Одинокий цветок</label>
+        <input type="checkbox" id="flower"> <br>
+        <label>Букет</label>
+        <input type="checkbox" id="bouquet"> <br>
+
+        <label for="caption">Подпись</label>
+        <input type="text" id="caption"><br><br>
+
+        <label for="backgroundColor">Цвет фона</label>
+        <select id="backgroundColor">
+            <option value="blue">Синий</option>
+            <option value="red">Красный</option>
+            <option value="green">Зеленый</option>
+            <option value="yellow">Желтый</option>
+        </select><br><br>
+
+        <label for="textColor">Цвет текста</label>
+        <input type="color" id="textColor"><br><br>
+
+        <button type="button" onclick="showPage()">Показать</button>
+        <button type="reset">Сброс</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+         function showPage() {
+            var title = document.getElementById("title").value;
+            var textField = document.getElementById("text-field").value;
+            var dogChecked = document.getElementById("dog").checked;
+            var flowerChecked = document.getElementById("flower").checked;
+            var bouquetChecked = document.getElementById("bouquet").checked;
+            var caption = document.getElementById("caption").value;
+            var backgroundColor = document.getElementById("backgroundColor").value;
+            var textColor = document.getElementById("textColor").value;
+
+            var outputHTML = `
+                <div style="background-color: ${backgroundColor}; color: ${textColor}; padding: 20px;">
+                    <h2>${title}</h2>
+                    <p>${textField}</p>
+                    <ul>
+                        ${dogChecked ?  '<img src="../img-task11/dog.jpg" alt="Собака">' : ''}
+                        ${flowerChecked ? '<img src="../img-task11/cvetok.jpg" alt="Цветок">' : ''}
+                        ${bouquetChecked ? '<img src="../img-task11/flower.jpg" alt="Букет">' : ''}
+                    </ul>
+                    <p>${caption}</p>
+                </div>
+            `;
+
+            var newWindow = window.open('', '_blank', 'width=600,height=400');
+            newWindow.document.open();
+            newWindow.document.write(outputHTML);
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>
